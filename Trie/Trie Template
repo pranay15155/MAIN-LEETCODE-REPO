@@ -1,0 +1,28 @@
+class Trienode{
+    public:
+
+    bool endofword;
+    Trienode* children[26];
+    string word;
+
+    Trienode(){
+        endofword=false;
+        for(int i=0;i<26;i++){
+            children[i]=NULL;
+        }
+        word="";
+    }
+
+
+    void insert(Trienode* root,string str){
+        Trienode* node=root;
+        for(char ch:str){
+            if(node->children[ch-'a']==NULL){
+                node->children[ch-'a']=new Trienode();
+            }
+            node=node->children[ch-'a'];
+        }
+        node->endofword=true;
+        node->word=str;
+    }
+};
