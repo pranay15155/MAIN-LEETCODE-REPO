@@ -12,13 +12,7 @@ class Trienode{
         }
         word="";
     }
-    
-};
 
-class Solution {
-public:
-    vector<string>ans;
-    int n,m;
 
     void insert(Trienode* root,string str){
         Trienode* node=root;
@@ -31,6 +25,14 @@ public:
         node->endofword=true;
         node->word=str;
     }
+};
+
+class Solution {
+public:
+    vector<string>ans;
+    int n,m;
+
+    
      
     void dfs(int row,int col,Trienode*root,vector<vector<char>>& board){
         if(row>=n || row<0 || col<0 || col>=m )return;
@@ -62,7 +64,7 @@ public:
         
         Trienode* root=new Trienode();
         for(int i=0;i<words.size();i++){
-            insert(root,words[i]);
+            root->insert(root, words[i]);
         }
 
         for(int i=0;i<n;i++){
